@@ -2,9 +2,7 @@ import SwiftUI
 import shared
 
 struct MultiPlatformView: Shape {
-    
     let platformDrawer = PlatformDrawer()
-    let multiplatformDrawer = MultiPlatformDrawer()
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -21,16 +19,18 @@ struct MultiPlatformView: Shape {
 
         return path
     }
+
+}
+
+struct MultiPlatformViewMultiPlatformDraw: Shape {
+    let multiplatformDrawer = MultiPlatformDrawer()
     
-    
-    // doesn't work
-//    func path(in rect: CGRect) -> Path {
-//        var cgPath = CGMutablePath()
-//
-//        multiplatformDrawer.drawOnPath(path: &cgPath)
-//
-//        return Path(cgPath)
-//    }
-//
+    // 😭 doesn't work. Draws nothing
+    func path(in rect: CGRect) -> Path {
+        var cgPath = CGMutablePath()
+        multiplatformDrawer.drawOnPath(path: &cgPath, drawingRect:  DrawingRect(width: Float(rect.width), height: Float(rect.height)))
+        return Path(cgPath)
+    }
+
 }
 

@@ -41,11 +41,11 @@ fun MultiPlatformView() = Canvas(
 fun MultiPlatformViewMultiPlatformDraw() = Canvas(
     modifier = Modifier
         .size(200.dp)
-        .background(Color.Black),
+        .background(Color.White),
     onDraw = {
         val path = Path()
-        MultiPlatformDrawer.drawOnPath(path)
-        drawPath(path, Color.Red)
+        MultiPlatformDrawer.drawOnPath(path, DrawingRect(size.width, size.height))
+        drawPath(path, Color.Blue)
         path.close()
     }
 )

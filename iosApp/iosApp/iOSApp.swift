@@ -4,7 +4,10 @@ import SwiftUI
 struct iOSApp: App {
 	var body: some Scene {
 		WindowGroup {
-			MultiPlatformView()
+            VStack () {
+                MultiPlatformView()
+                MultiPlatformViewMultiPlatformDraw()
+            }
 		}
 	}
 }
